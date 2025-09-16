@@ -46,6 +46,13 @@ class Point :
         return math.sqrt((self.__x -x)**2 +
                          (self.__y +y)**2)
 
+    def distancePoint(self,camarade)->float:
+        return math.sqrt((self.__x - camarade.__x)**2 +
+                         (self.__y - camarade.__y)**2)
+
+
+
+
 
 if __name__ == "__main__":
     p1:Point = Point()
@@ -57,3 +64,4 @@ if __name__ == "__main__":
     print(p2)
     print(p1.distanceCoord(2.1,3)) #distance entre p1 et 2.1 ,3 (p3)
     print(p3.distanceCoord(0, 0))  #distance entre p3 et 0 , 0 (p1)
+    print(p1.distancePoint(Point(2.1,3)))
