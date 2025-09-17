@@ -18,7 +18,7 @@ if __name__ == "__main__":
     #x = input("Saisir l'abscisse : ")
     #y = input("Saisir l'ordonnée : ")
     try:
-        p = Point(12,4)
+        p = Point(12,"t")
     except TypeError as e:
         print(e)
     else:
