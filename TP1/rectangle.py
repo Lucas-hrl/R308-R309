@@ -34,7 +34,16 @@ class Rectangle:
         return (f"Le rectangle a un point bas gauche a {self.__pointBasGauche}, "
                 f"une longueur de {self.__longueur} cm et une hauteur de {self.__hauteur} cm")
 
+    def surface(self):
+        return self.__hauteur*self.__longueur
+
+    def perimetre(self):
+        return self.__hauteur*2 + self.__longueur*2
 
 if __name__ == "__main__":
     rect1 = Rectangle()
     print(rect1)
+    rect2 = Rectangle(longueur = 2, hauteur = 6)
+    print(rect2)
+    print(f"Le périmètre est {rect2.perimetre()} cm")
+    print(f"la surface est  : {rect2.surface()}cm**2")
