@@ -8,10 +8,12 @@ class Cercle:
             self.__centre = centre
         else:
             raise TypeError("mauvais type de valeur pour centre")
-        if isinstance(rayon,Union[float,int]):
+        if isinstance(rayon, (float, int)):
             self.__rayon = rayon
         else:
             raise TypeError("mauvais type de valeur pour le rayon")
+        if rayon < 0:
+            raise ValueError("le rayon ne peut pas être négatif")
 
 
     def __str__(self):
@@ -23,6 +25,8 @@ class Cercle:
 
     @centre.setter
     def centre(self, centre: Point):
+        if not isinstance(centre, Point):
+            raise TypeError("Le centre doit être un objet Point")
         self.__centre = centre
 
     @property
@@ -31,6 +35,10 @@ class Cercle:
 
     @rayon.setter
     def rayon(self, rayon: float):
+        if not isinstance(rayon, (int, float)):
+            raise TypeError("Le rayon doit être un nombre (int ou float)")
+        if rayon < 0:
+            raise ValueError("Le rayon ne peut pas être négatif")
         self.__rayon = rayon
 
     def diametre(self)-> float:
@@ -46,13 +54,17 @@ class Cercle:
 
 if __name__ == "__main__":
     try:
-        cercle1 = Cercle(4)
+        cercle1 = Cercle(-5)
     except TypeError as e:
         print(e)
+    except ValueError as ve:
+        print(ve)
     else:
         print(cercle1)
 
-    print(vars(cercle1))
-    print(cercle1.diametre())
-    print(cercle1.perimetre())
-    print(cercle1.surface())
+
+
+    #print(vars(cercle1))
+    #print(cercle1.diametre())
+    #print(cercle1.perimetre())
+    #print(cercle1.surface())
