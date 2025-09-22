@@ -83,7 +83,8 @@ class Personnage:
         return (f"le perso {self.__pseudo} possede maintenant {self.__pv} points de vie, "
                 f"le perso {perso_adv.pseudo} possede {perso_adv.pv} points de vie")
 
-
+    def degats(self)->int:
+        return self.__niveau
 
 
 
